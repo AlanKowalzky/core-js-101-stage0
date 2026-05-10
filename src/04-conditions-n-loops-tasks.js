@@ -302,7 +302,8 @@ function isCreditCardNumber(ccn) {
 function getDigitalRoot(num) {
   let n = num;
   while (n > 9) {
-    n = n.toString()
+    n = n
+      .toString()
       .split('')
       .map(Number)
       .reduce((acc, curr) => acc + curr, 0);
