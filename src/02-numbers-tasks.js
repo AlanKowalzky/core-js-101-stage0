@@ -50,7 +50,9 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1 + value2) / 2;
+  // Aby zapobiec przepełnieniu (overflow) gdy value1 i value2 są bardzo duże,
+  // dzielimy każdą liczbę przez 2 przed zsumowaniem.
+  return (value1 / 2) + (value2 / 2);
 }
 
 /**

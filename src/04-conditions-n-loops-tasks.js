@@ -390,7 +390,9 @@ function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
 function getCommonDirectoryPath(pathes) {
-  if (pathes.length === 0) return '';
+  if (pathes.length === 0) {
+    return '';
+  }
   const splitPaths = pathes.map((p) => p.split('/'));
   const common = [];
   const firstPath = splitPaths[0];
@@ -399,7 +401,7 @@ function getCommonDirectoryPath(pathes) {
     const segment = firstPath[i];
     for (let j = 1; j < splitPaths.length; j += 1) {
       if (i >= splitPaths[j].length || splitPaths[j][i] !== segment) {
-        return common.join('/') + (common.length > 0 ? '/' : ''); // Zmniejszenie wcięcia do 6 spacji
+        return common.join('/') + (common.length > 0 ? '/' : '');
       }
     }
     common.push(segment);
