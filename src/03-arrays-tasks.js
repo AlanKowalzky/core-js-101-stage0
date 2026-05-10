@@ -317,8 +317,16 @@ function getPositivesCount(arr) {
  */
 function sortDigitNamesByNumericOrder(arr) {
   const digitMap = {
-    zero: 0, one: 1, two: 2, three: 3, four: 4,
-    five: 5, six: 6, seven: 7, eight: 8, nine: 9,
+    zero: 0,
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9,
   };
   return arr.sort((a, b) => digitMap[a] - digitMap[b]);
 }
@@ -443,8 +451,7 @@ function sortCitiesArray(arr) {
  */
 function getIdentityMatrix(n) {
   return Array.from({ length: n }, (_, rowIndex) =>
-    Array.from({ length: n }, (__, colIndex) =>
-      (rowIndex === colIndex ? 1 : 0))
+    Array.from({ length: n }, (__, colIndex) => (rowIndex === colIndex ? 1 : 0))
   );
 }
 
