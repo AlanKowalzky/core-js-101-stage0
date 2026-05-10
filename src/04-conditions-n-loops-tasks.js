@@ -339,11 +339,14 @@ function isBracketsBalanced(str) {
     '}': '{',
     '>': '<',
   };
-  for (const char of str) {
+  for (let i = 0; i < str.length; i += 1) {
+    const char = str[i];
     if (['(', '[', '{', '<'].includes(char)) {
       stack.push(char);
     } else if (brackets[char]) {
-      if (stack.pop() !== brackets[char]) return false;
+      if (stack.pop() !== brackets[char]) {
+        return false;
+      }
     }
   }
   return stack.length === 0;
@@ -395,7 +398,7 @@ function getCommonDirectoryPath(pathes) {
     const segment = firstPath[i];
     for (let j = 1; j < splitPaths.length; j += 1) {
       if (i >= splitPaths[j].length || splitPaths[j][i] !== segment) {
-        return common.join('/') + (common.length > 0 ? '/' : '');
+        return common.join('/') + (common.length > 0 ? '/' : ''); // Zmniejszenie wcięcia do 6 spacji
       }
     }
     common.push(segment);
@@ -423,7 +426,9 @@ function getCommonDirectoryPath(pathes) {
  *
  */
 function getMatrixProduct(m1, m2) {
-  const result = Array.from({ length: m1.length }, () => Array(m2[0].length).fill(0));
+  const result = Array.from({ length: m1.length }, () =>
+    Array(m2[0].length).fill(0)
+  );
   for (let i = 0; i < m1.length; i += 1) {
     for (let j = 0; j < m2[0].length; j += 1) {
       let sum = 0;
@@ -475,7 +480,8 @@ function evaluateTicTacToePosition(position) {
   lines.push([position[0][0], position[1][1], position[2][2]]);
   lines.push([position[0][2], position[1][1], position[2][0]]);
 
-  for (const line of lines) {
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
     const [a, b, c] = line;
     if (a !== undefined && a === b && a === c) {
       return a;
